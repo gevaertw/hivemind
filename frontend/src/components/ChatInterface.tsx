@@ -104,20 +104,20 @@ export function ChatInterface({
   const suggestedQuestions = profile
     ? [
         profile.role === 'Account Exec'
-          ? 'What are my active opportunities?'
+          ? 'What are the active opportunities with Proximus?'
           : profile.role === 'Account Technology Strategist'
-          ? 'Show me customer technology roadmaps'
+          ? 'Show me Proximus technology roadmap'
           : profile.role === 'Solution Specialist'
-          ? 'Which customers have low adoption?'
+          ? 'What solutions are gaining traction at Proximus?'
           : profile.role === 'Solution Engineer'
           ? 'What technical engagements are in progress?'
           : profile.role === 'Cloud Solution Architect'
-          ? 'Show active architecture engagements'
+          ? 'Show Proximus cloud architecture initiatives'
           : profile.role === 'CSAM'
-          ? 'What is the customer health status?'
-          : 'What is the overall customer sentiment?',
-        'Give me a summary of this week\'s activity',
-        'Which customers need immediate attention?',
+          ? 'What is the Proximus account health?'
+          : 'What is the latest news on Proximus?',
+        'Give me a summary of recent Proximus activity',
+        'What are the key risks to monitor?',
       ]
     : [];
 

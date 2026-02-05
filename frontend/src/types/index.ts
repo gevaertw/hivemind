@@ -53,4 +53,6 @@ export const PERIOD_OPTIONS: PeriodOption[] = [
   { value: '14d', label: 'Last 2 weeks', days: 14 },
   { value: '30d', label: 'Last 30 days', days: 30 },
   { value: '90d', label: 'Last 3 months', days: 90 },
+  { value: '365d', label: 'Last year', days: 365 },
+  { value: 'all', label: 'All time', days: 9999 },
 ];

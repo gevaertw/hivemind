@@ -56,121 +56,133 @@ export const mockProfiles: Profile[] = [
 export const mockCustomers: Customer[] = [
   {
     id: 'cust-1',
-    name: 'TechCorp Industries',
-    company: 'TechCorp Industries',
-    industry: 'Technology',
+    name: 'Proximus Group',
+    company: 'Proximus Group',
+    industry: 'Telecommunications',
     status: 'active',
     healthScore: 85,
     lastContact: new Date('2026-02-03'),
-    totalRevenue: 125000,
-  },
-  {
-    id: 'cust-2',
-    name: 'Global Retail Solutions',
-    company: 'Global Retail Solutions',
-    industry: 'Retail',
-    status: 'at-risk',
-    healthScore: 45,
-    lastContact: new Date('2026-01-28'),
-    totalRevenue: 89000,
-  },
-  {
-    id: 'cust-3',
-    name: 'FinanceFirst Bank',
-    company: 'FinanceFirst Bank',
-    industry: 'Financial Services',
-    status: 'active',
-    healthScore: 92,
-    lastContact: new Date('2026-02-04'),
-    totalRevenue: 320000,
-  },
-  {
-    id: 'cust-4',
-    name: 'HealthPlus Medical',
-    company: 'HealthPlus Medical',
-    industry: 'Healthcare',
-    status: 'active',
-    healthScore: 78,
-    lastContact: new Date('2026-02-01'),
-    totalRevenue: 156000,
-  },
-  {
-    id: 'cust-5',
-    name: 'EcoGreen Energy',
-    company: 'EcoGreen Energy',
-    industry: 'Energy',
-    status: 'prospect',
-    healthScore: 60,
-    lastContact: new Date('2026-02-02'),
-    totalRevenue: 0,
+    totalRevenue: 5800000,
   },
 ];
 
-// Generate mock events for the past 90 days
+// Proximus news events based on real highlights
 function generateMockEvents(): CustomerEvent[] {
-  const events: CustomerEvent[] = [];
-  const now = new Date();
-  
-  const eventTemplates = [
-    // TechCorp Industries events
-    { customerId: 'cust-1', customerName: 'TechCorp Industries', type: 'email' as const, title: 'Q1 Renewal Discussion', description: 'Positive response to renewal proposal. Customer expressed interest in expanding their license count.', source: 'Gmail', sentiment: 'positive' as const },
-    { customerId: 'cust-1', customerName: 'TechCorp Industries', type: 'meeting' as const, title: 'Product Demo - New Features', description: 'Demonstrated new analytics dashboard. Strong interest in real-time reporting capabilities.', source: 'Calendar', sentiment: 'positive' as const },
-    { customerId: 'cust-1', customerName: 'TechCorp Industries', type: 'ticket' as const, title: 'API Integration Issue', description: 'Customer reported timeout errors in API calls. Engineering team investigating.', source: 'Zendesk', sentiment: 'negative' as const, priority: 'high' as const },
-    
-    // Global Retail Solutions events
-    { customerId: 'cust-2', customerName: 'Global Retail Solutions', type: 'call' as const, title: 'Escalation Call - Performance Issues', description: 'Customer frustrated with slow load times during peak hours. Requires immediate attention.', source: 'Phone', sentiment: 'negative' as const, priority: 'high' as const },
-    { customerId: 'cust-2', customerName: 'Global Retail Solutions', type: 'ticket' as const, title: 'Data Export Not Working', description: 'Monthly report export failing with error. Multiple attempts unsuccessful.', source: 'Zendesk', sentiment: 'negative' as const, priority: 'medium' as const },
-    { customerId: 'cust-2', customerName: 'Global Retail Solutions', type: 'email' as const, title: 'Contract Review Request', description: 'Customer asking for contract terms review. May be considering alternatives.', source: 'Gmail', sentiment: 'neutral' as const },
-    
-    // FinanceFirst Bank events
-    { customerId: 'cust-3', customerName: 'FinanceFirst Bank', type: 'purchase' as const, title: 'Enterprise Add-on Purchase', description: 'Purchased advanced security module for $45,000. Deployment scheduled for next month.', source: 'Salesforce', sentiment: 'positive' as const },
-    { customerId: 'cust-3', customerName: 'FinanceFirst Bank', type: 'meeting' as const, title: 'Quarterly Business Review', description: 'Excellent QBR session. Customer highlighted 35% efficiency improvement since implementation.', source: 'Calendar', sentiment: 'positive' as const },
-    { customerId: 'cust-3', customerName: 'FinanceFirst Bank', type: 'feedback' as const, title: 'NPS Survey Response', description: 'Submitted NPS score of 9. Praised customer support responsiveness.', source: 'Survey', sentiment: 'positive' as const },
-    
-    // HealthPlus Medical events
-    { customerId: 'cust-4', customerName: 'HealthPlus Medical', type: 'email' as const, title: 'Training Request', description: 'Requested additional training sessions for new team members joining in March.', source: 'Gmail', sentiment: 'neutral' as const },
-    { customerId: 'cust-4', customerName: 'HealthPlus Medical', type: 'ticket' as const, title: 'HIPAA Compliance Question', description: 'Asking about audit logs and data retention policies for compliance review.', source: 'Zendesk', sentiment: 'neutral' as const, priority: 'medium' as const },
-    { customerId: 'cust-4', customerName: 'HealthPlus Medical', type: 'social' as const, title: 'LinkedIn Mention', description: 'Posted about successful digital transformation journey, mentioned our platform positively.', source: 'LinkedIn', sentiment: 'positive' as const },
-    
-    // EcoGreen Energy events
-    { customerId: 'cust-5', customerName: 'EcoGreen Energy', type: 'meeting' as const, title: 'Discovery Call', description: 'Initial discovery meeting. Interested in sustainability reporting features.', source: 'Calendar', sentiment: 'positive' as const },
-    { customerId: 'cust-5', customerName: 'EcoGreen Energy', type: 'email' as const, title: 'Proposal Request', description: 'Requested detailed proposal for enterprise package. Decision expected by end of Q1.', source: 'Gmail', sentiment: 'positive' as const },
-    { customerId: 'cust-5', customerName: 'EcoGreen Energy', type: 'call' as const, title: 'Technical Requirements Discussion', description: 'Discussed integration with existing ERP system. Some concerns about migration complexity.', source: 'Phone', sentiment: 'neutral' as const },
+  const events: CustomerEvent[] = [
+    {
+      id: 'event-1',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'meeting',
+      title: 'CEO Transition Update',
+      description: 'Guillaume Boutin exits; Jan Van Acoleyen serves as interim CEO from 17 Apr 2025; Stijn Bijnens becomes Group CEO on 1 Sep 2025.',
+      source: 'proximus.com',
+      sentiment: 'neutral',
+      timestamp: new Date('2026-01-28'),
+    },
+    {
+      id: 'event-2',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'meeting',
+      title: 'Leadership Squad Refresh',
+      description: 'New Benelux governance with R. Tilmans (B2B), F. De Windt (Proximus NXT), J. Casteele (B2C & AI), D. Goemans (Customer Operations), J. Verbruggen (IT); A‑V. Heuschen named Group Secretary General.',
+      source: 'proximus.com',
+      sentiment: 'positive',
+      timestamp: new Date('2026-02-03'),
+    },
+    {
+      id: 'event-3',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'purchase',
+      title: 'Creation of Proximus Global',
+      description: 'BICS, Telesign, Route Mobile unified under Proximus Global to simplify governance and scale CPaaS/digital identity and global connectivity.',
+      source: 'rcrwireless.com',
+      sentiment: 'positive',
+      timestamp: new Date('2025-11-15'),
+    },
+    {
+      id: 'event-4',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'meeting',
+      title: 'Starlink Partnership Announced',
+      description: 'BICS (Proximus Global) becomes preferred IPX provider in Europe for direct‑to‑cell satellite services, initially enabling operators like Kyivstar.',
+      source: 'bics.com',
+      sentiment: 'positive',
+      timestamp: new Date('2026-01-25'),
+    },
+    {
+      id: 'event-5',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'purchase',
+      title: 'Ericsson Indoor 4G/5G Deployment',
+      description: 'Proximus adopts Ericsson Radio Dot System to boost indoor enterprise and venue coverage nationwide.',
+      source: 'ericsson.com',
+      sentiment: 'positive',
+      timestamp: new Date('2025-12-10'),
+    },
+    {
+      id: 'event-6',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'ticket',
+      title: 'Flanders Fiber Collaboration - Regulatory Process',
+      description: 'BCA/BIPT launched a market test on proposed Proximus/Fiberklaar & Telenet/Wyre cooperation to accelerate FTTH with FRAND access.',
+      source: 'bma-abc.be',
+      sentiment: 'neutral',
+      priority: 'medium',
+      timestamp: new Date('2026-01-20'),
+    },
+    {
+      id: 'event-7',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'feedback',
+      title: 'Q3-2025 Performance & Guidance Reset',
+      description: 'Strong domestic adds (+45k postpaid, +12k internet; ~2.5M homes passed by fiber), Global EBITDA under pressure; CapEx cut to €1.25bn; organic FCF ~€100m; 2026 Global EBITDA reset €100–130m.',
+      source: 'proximus.com',
+      sentiment: 'neutral',
+      priority: 'high',
+      timestamp: new Date('2026-01-15'),
+    },
+    {
+      id: 'event-8',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'email',
+      title: 'Price Adjustments Effective Jan 2026',
+      description: 'Most older bundles & selected services increased by €1–€4/month, citing persistent cost inflation; widely reported in Belgian media.',
+      source: 'brusselstimes.com',
+      sentiment: 'negative',
+      priority: 'medium',
+      timestamp: new Date('2026-02-01'),
+    },
+    {
+      id: 'event-9',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'purchase',
+      title: 'Defence Cyber Contract Won',
+      description: 'Proximus NXT selected as a strategic cyber partner for Belgium\'s Ministry of Defence (multi‑year Cyber Force support).',
+      source: 'proximus.com',
+      sentiment: 'positive',
+      timestamp: new Date('2026-01-31'),
+    },
+    {
+      id: 'event-10',
+      customerId: 'cust-1',
+      customerName: 'Proximus Group',
+      type: 'meeting',
+      title: 'Sovereign Cloud Initiative',
+      description: 'Proximus to deliver Google Distributed Cloud Hosted in Belgium & Luxembourg (with LuxConnect); also offers a sovereign cloud route with Microsoft (encryption/keys held in EU).',
+      source: 'proximus.be',
+      sentiment: 'positive',
+      timestamp: new Date('2026-01-10'),
+    },
   ];
-
-  // Distribute events across the past 90 days
-  eventTemplates.forEach((template, index) => {
-    const daysAgo = Math.floor(Math.random() * 14) + 1; // Random day in last 2 weeks
-    const timestamp = new Date(now);
-    timestamp.setDate(timestamp.getDate() - daysAgo);
-    timestamp.setHours(Math.floor(Math.random() * 10) + 8); // 8am - 6pm
-    timestamp.setMinutes(Math.floor(Math.random() * 60));
-
-    events.push({
-      id: `event-${index + 1}`,
-      ...template,
-      timestamp,
-    });
-  });
-
-  // Add some older events
-  const olderEvents = [
-    { customerId: 'cust-1', customerName: 'TechCorp Industries', type: 'purchase' as const, title: 'Annual Subscription Renewal', description: 'Successfully renewed annual subscription with 10% growth.', source: 'Salesforce', sentiment: 'positive' as const },
-    { customerId: 'cust-2', customerName: 'Global Retail Solutions', type: 'meeting' as const, title: 'Implementation Kickoff', description: 'Started Phase 2 implementation. Timeline adjusted due to resource constraints.', source: 'Calendar', sentiment: 'neutral' as const },
-    { customerId: 'cust-3', customerName: 'FinanceFirst Bank', type: 'email' as const, title: 'Case Study Approval', description: 'Approved participation in customer success case study.', source: 'Gmail', sentiment: 'positive' as const },
-  ];
-
-  olderEvents.forEach((template, index) => {
-    const daysAgo = Math.floor(Math.random() * 60) + 30; // 30-90 days ago
-    const timestamp = new Date(now);
-    timestamp.setDate(timestamp.getDate() - daysAgo);
-    
-    events.push({
-      id: `event-old-${index + 1}`,
-      ...template,
-      timestamp,
-    });
-  });
 
   return events.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
 }
@@ -184,52 +196,52 @@ export function generateMockChatResponse(message: string, profile: Profile): str
   // Role-specific responses
   if (profile.role === 'Account Exec') {
     if (lowerMessage.includes('deal') || lowerMessage.includes('opportunity')) {
-      return "**Active Opportunities:**\n\n1. **EcoGreen Energy** - Enterprise License\n   - Stage: Proposal Sent\n   - Value: $180,000 ARR\n   - Close date: End of Q1\n   - Next step: Technical validation meeting\n\n2. **TechCorp Industries** - Expansion\n   - Stage: Negotiation\n   - Value: $45,000 upsell\n   - Decision maker engaged\n\n**Revenue this quarter:** $425K closed, $225K pipeline";
+      return "**Active Opportunities with Proximus:**\n\n1. **Proximus NXT Expansion** - Cyber Services\n   - Stage: Contract Negotiation\n   - Value: €2.5M multi-year\n   - Defence Ministry cyber contract secured Jan 2026\n\n2. **Sovereign Cloud Services**\n   - Stage: Active Engagement\n   - Google Distributed Cloud & Microsoft routes\n   - Belgium & Luxembourg markets\n\n**Key Decision Makers:**\n• Stijn Bijnens (Group CEO since Sep 2025)\n• New leadership squad appointed Jan 2026";
     }
     if (lowerMessage.includes('risk') || lowerMessage.includes('churn')) {
-      return "**Account Risk Analysis:**\n\n⚠️ **Global Retail Solutions** - At Risk\n• Health score: 45 (down from 72)\n• Engagement declining over 30 days\n• Key contact left the company\n• Renewal in 60 days\n\n**Recommended actions:**\n1. Executive sponsor meeting ASAP\n2. Coordinate with CSAM on success plan\n3. Involve Cloud Solution Architect for technical reset";
+      return "**Account Risk Analysis - Proximus:**\n\n⚠️ **Areas to Monitor:**\n• Price adjustments (€1-€4/month) effective Jan 2026 - customer perception\n• Global EBITDA under pressure - 2026 reset to €100-130m\n• CapEx cut to €1.25bn may impact project timelines\n\n✅ **Positive Signals:**\n• Strong domestic adds: +45k postpaid, +12k internet\n• ~2.5M homes passed by fiber\n• New leadership energizing transformation";
     }
   }
   
   if (profile.role === 'Account Technology Strategist') {
     if (lowerMessage.includes('roadmap') || lowerMessage.includes('strategy') || lowerMessage.includes('transform')) {
-      return "**Customer Technology Roadmaps:**\n\n**FinanceFirst Bank**\n• Current: Hybrid cloud migration Phase 2\n• Next: AI/ML workload integration (Q2)\n• Opportunity: Data platform modernization\n\n**TechCorp Industries**\n• Evaluating sustainability initiatives\n• Interest in carbon footprint analytics\n• Digital workplace transformation ongoing\n\n**Alignment opportunities:** 3 customers aligned with upcoming product releases";
+      return "**Proximus Technology Roadmap:**\n\n**Current Initiatives:**\n• Proximus Global unification (BICS, Telesign, Route Mobile)\n• CPaaS & digital identity scaling\n• Starlink partnership for direct-to-cell satellite services\n\n**Infrastructure:**\n• Ericsson Radio Dot System for indoor 4G/5G (Apr 2025)\n• Flanders fiber collaboration with Fiberklaar/Telenet/Wyre\n• FTTH acceleration with FRAND access\n\n**Cloud Strategy:**\n• Google Distributed Cloud Hosted (BE/LU)\n• Microsoft sovereign cloud route\n• EU-held encryption keys";
     }
   }
   
   if (profile.role === 'Solution Specialist') {
     if (lowerMessage.includes('adoption') || lowerMessage.includes('usage')) {
-      return "**Solution Adoption Metrics:**\n\n**High Adoption (>80%):**\n• FinanceFirst Bank - 92% feature utilization\n• HealthPlus Medical - 85% active users\n\n**Needs Attention (<50%):**\n• Global Retail Solutions - 38% adoption\n  - Unused: Advanced analytics, API integrations\n  - Recommendation: Enablement workshop\n\n**Expansion Signals:**\n• TechCorp requesting demo of premium features\n• 2 customers inquiring about add-on modules";
+      return "**Proximus Solution Adoption:**\n\n**High Traction Areas:**\n• Cyber security services (Defence contract won)\n• Sovereign cloud offerings\n• Enterprise indoor coverage (Ericsson deployment)\n\n**Growth Opportunities:**\n• Proximus Global CPaaS platform\n• Direct-to-cell satellite via Starlink/BICS\n• FTTH enterprise services (~2.5M homes passed)\n\n**Cross-sell Potential:**\n• Bundle Proximus NXT cyber with connectivity\n• Sovereign cloud + managed security";
     }
   }
   
   if (profile.role === 'Solution Engineer') {
     if (lowerMessage.includes('technical') || lowerMessage.includes('integration') || lowerMessage.includes('poc')) {
-      return "**Active Technical Engagements:**\n\n**POC in Progress:**\n• EcoGreen Energy - API integration POC\n  - Status: Day 5 of 14\n  - Blockers: None\n  - Success criteria: 95% achieved\n\n**Technical Issues:**\n• TechCorp Industries - SSO configuration pending\n• Global Retail Solutions - Performance optimization needed\n\n**Upcoming:**\n• HealthPlus demo environment setup (next week)";
+      return "**Active Technical Engagements - Proximus:**\n\n**In Progress:**\n• Ericsson Radio Dot indoor deployment\n  - Enterprise & venue coverage rollout\n  - Status: Nationwide implementation\n\n• Sovereign Cloud Integration\n  - Google Distributed Cloud setup\n  - LuxConnect partnership active\n\n**Technical Considerations:**\n• FTTH FRAND access regulatory requirements\n• IPX integration for Starlink D2C services\n• Proximus Global platform consolidation";
     }
   }
   
   if (profile.role === 'Cloud Solution Architect') {
     if (lowerMessage.includes('architecture') || lowerMessage.includes('design') || lowerMessage.includes('cloud')) {
-      return "**Architecture Engagements:**\n\n**Active Designs:**\n• FinanceFirst Bank - Multi-region DR architecture\n  - Review scheduled: Feb 10\n  - Compliance: SOC2, PCI-DSS aligned\n\n• EcoGreen Energy - Greenfield cloud architecture\n  - Phase: Discovery complete\n  - Recommendation: Hybrid approach\n\n**Best Practice Reviews:**\n• 2 customers due for architecture health check\n• TechCorp requesting scalability assessment";
+      return "**Proximus Cloud Architecture:**\n\n**Sovereign Cloud Stack:**\n• Google Distributed Cloud Hosted\n  - Locations: Belgium & Luxembourg\n  - Partner: LuxConnect\n• Microsoft Sovereign Route\n  - EU-held encryption keys\n  - Compliance-ready architecture\n\n**Network Architecture:**\n• FTTH expansion (~2.5M homes)\n• Indoor 4G/5G (Ericsson Radio Dot)\n• Starlink IPX integration via BICS\n\n**Security Considerations:**\n• Defence-grade cyber capabilities\n• Data sovereignty requirements met";
     }
   }
   
   if (profile.role === 'CSAM') {
     if (lowerMessage.includes('health') || lowerMessage.includes('success') || lowerMessage.includes('adoption')) {
-      return "**Customer Health Dashboard:**\n\n🟢 **Healthy (3):**\n• FinanceFirst Bank - Score: 92\n• TechCorp Industries - Score: 85\n• HealthPlus Medical - Score: 78\n\n🟡 **Needs Attention (1):**\n• EcoGreen Energy - Score: 60 (new customer)\n\n🔴 **At Risk (1):**\n• Global Retail Solutions - Score: 45\n  - Action plan created\n  - Executive escalation in progress\n\n**Upcoming QBRs:** 2 this month";
+      return "**Proximus Account Health:**\n\n🟢 **Health Score: 85**\n\n**Positive Indicators:**\n• Defence cyber contract secured (Jan 2026)\n• New leadership providing fresh momentum\n• Strong domestic subscriber growth\n• Strategic partnerships (Starlink, Ericsson)\n\n🟡 **Monitor:**\n• Global EBITDA pressure\n• Price adjustment market reception\n• CapEx reduction impact\n\n**Upcoming Milestones:**\n• Fiber deployment targets\n• Proximus Global integration completion";
     }
     if (lowerMessage.includes('risk') || lowerMessage.includes('churn')) {
-      return "**Risk Assessment - Global Retail Solutions:**\n\n**Risk Indicators:**\n• Health score dropped 27 points in 30 days\n• 3 unresolved support escalations\n• NPS response: Detractor (score: 4)\n• Key stakeholder departed\n\n**Mitigation Plan:**\n1. ✅ Executive sponsor meeting scheduled (Feb 8)\n2. ⏳ Technical health check with Solution Engineer\n3. ⏳ Success plan revision with customer\n4. 📋 Escalation to Account Exec for renewal strategy";
+      return "**Risk Assessment - Proximus:**\n\n**Watch Items:**\n• Price increases (Jan 2026) may affect sentiment\n• Global segment under EBITDA pressure\n• Leadership transition period (CEO changed Sep 2025)\n\n**Mitigation Actions:**\n1. ✅ Engaged with new leadership team\n2. ✅ Positioned for sovereign cloud opportunity\n3. ⏳ Monitoring fiber collaboration regulatory outcome\n4. 📋 Tracking customer reaction to pricing changes";
     }
   }
   
   // Generic responses
   if (lowerMessage.includes('summary') || lowerMessage.includes('overview')) {
-    return "**This Week's Customer Activity Summary:**\n\n📊 **By the Numbers:**\n- 15 customer interactions logged\n- 5 meetings conducted\n- 8 emails exchanged\n- 2 high-priority issues\n\n🟢 **Positive Highlights:**\n- FinanceFirst Bank purchased enterprise add-on ($45K)\n- TechCorp showing strong renewal signals\n- HealthPlus featured us on LinkedIn\n\n🔴 **Attention Required:**\n- Global Retail Solutions health declining\n- 2 escalated support tickets need resolution";
+    return "**Proximus Activity Summary:**\n\n📊 **Recent Developments:**\n\n**Leadership (2025-2026):**\n• Stijn Bijnens became Group CEO (Sep 2025)\n• New leadership squad appointed (Jan 2026)\n\n**Strategic Moves:**\n• Proximus Global created (BICS+Telesign+Route Mobile)\n• Starlink partnership for satellite services\n• Defence cyber contract won\n\n**Infrastructure:**\n• 2.5M homes passed with fiber\n• Ericsson indoor 4G/5G deployed\n• Sovereign cloud with Google & Microsoft\n\n⚠️ **Attention:**\n• Price adjustments effective Jan 2026\n• Global EBITDA guidance reset";
   }
   
-  return "I've analyzed the customer data based on your role as " + profile.role + ". Here's what I found:\n\n• 5 active customers in your portfolio\n• 1 customer (Global Retail Solutions) showing at-risk signals\n• 2 customers with positive engagement this week\n• 1 active prospect in pipeline\n\nWould you like me to drill down into any specific customer or provide recommendations based on your priorities?";
+  return "I've analyzed Proximus Group data based on your role as " + profile.role + ". Here's what I found:\n\n• Active telecommunications account in Belgium\n• Recent leadership transition completed\n• Multiple strategic initiatives underway\n• Defence cyber contract secured\n• Sovereign cloud opportunities active\n\nWould you like me to drill down into specific news, opportunities, or provide recommendations?";
 }
 
 // Initial chat messages
@@ -237,7 +249,7 @@ export const initialChatMessages: ChatMessage[] = [
   {
     id: 'msg-1',
     role: 'assistant',
-    content: "Hello! I'm your Hivemind AI assistant. I have access to consolidated customer data from all your internal and external sources. Based on your role, I can help you with:\n\n• Customer health and risk analysis\n• Activity summaries and trends\n• Actionable insights and recommendations\n\nWhat would you like to know about your customers?",
+    content: "Hello! I'm your Hivemind AI assistant. I have access to consolidated Proximus Group data from news sources, internal systems, and market intelligence. Based on your role, I can help you with:\n\n• Recent news and strategic updates\n• Leadership and organizational changes\n• Technology initiatives and partnerships\n• Account health and opportunities\n\nWhat would you like to know about Proximus?",
     timestamp: new Date(),
   },
 ];

@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button';
 
 function App() {
   const [selectedProfile, setSelectedProfile] = useState<Profile | null>(null);
-  const [selectedPeriod, setSelectedPeriod] = useState<PeriodOption>(PERIOD_OPTIONS[1]); // Default: 7 days
+  const [selectedPeriod, setSelectedPeriod] = useState<PeriodOption>(PERIOD_OPTIONS[2]); // Default: 2 weeks
   const [messages, setMessages] = useState<ChatMessage[]>(initialChatMessages);
   const [isLoading, setIsLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -20,7 +20,7 @@ function App() {
     const greeting: ChatMessage = {
       id: `msg-greeting-${Date.now()}`,
       role: 'assistant',
-      content: `Hello ${profile.name}! I'm now configured for your role as ${profile.role}. I'll provide insights relevant to ${profile.department}. What would you like to know about your customers?`,
+      content: `Hello ${profile.name}! I'm now configured for your role as ${profile.role}. I'll provide Proximus insights relevant to ${profile.department}. What would you like to know?`,
       timestamp: new Date(),
     };
     setMessages([...initialChatMessages, greeting]);

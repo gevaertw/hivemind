@@ -9,4 +9,6 @@ user interactions:
 
 
 - in the collum where a profile is selected, add a button generate a podcast to prepare a meeting with the customer for now put no logic behind the button
+- below that button add another button to record meeting notes from speech
 
+- replace the roles in the selector with the following roles:  Account Exec, Account Technology Strategist, Solution Specialist, Solution Engineer, Cloud Solution Architect, CSAM 

@@ -1,5 +1,6 @@
 import { Profile } from '@/types';
 import { Avatar, AvatarFallback } from '@/components/ui/Avatar';
+import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import {
   Select,
@@ -8,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/Select';
-import { User, Briefcase, Building2 } from 'lucide-react';
+import { User, Briefcase, Building2, Podcast, Mic } from 'lucide-react';
 
 interface ProfileSelectorProps {
   profiles: Profile[];
@@ -76,6 +77,33 @@ export function ProfileSelector({
                   {selectedProfile.description}
                 </p>
               </div>
+            </div>
+          )}
+
+          {selectedProfile && (
+            <div className="space-y-2">
+              <Button
+                variant="outline"
+                className="w-full gap-2"
+                onClick={() => {
+                  // TODO: Implement podcast generation logic
+                  console.log('Generate podcast for customer meeting preparation');
+                }}
+              >
+                <Podcast className="h-4 w-4" />
+                Generate Podcast for Meeting
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full gap-2"
+                onClick={() => {
+                  // TODO: Implement speech-to-text meeting notes logic
+                  console.log('Record meeting notes from speech');
+                }}
+              >
+                <Mic className="h-4 w-4" />
+                Record Meeting Notes
+              </Button>
             </div>
           )}
         </div>

@@ -103,14 +103,18 @@ export function ChatInterface({
 
   const suggestedQuestions = profile
     ? [
-        profile.role === 'Customer Success Manager'
-          ? 'Which customers are at risk of churning?'
-          : profile.role === 'Sales Executive'
-          ? 'What are the top prospects this week?'
-          : profile.role === 'Support Lead'
-          ? 'Show me open high-priority tickets'
-          : profile.role === 'Product Manager'
-          ? 'What features are customers requesting?'
+        profile.role === 'Account Exec'
+          ? 'What are my active opportunities?'
+          : profile.role === 'Account Technology Strategist'
+          ? 'Show me customer technology roadmaps'
+          : profile.role === 'Solution Specialist'
+          ? 'Which customers have low adoption?'
+          : profile.role === 'Solution Engineer'
+          ? 'What technical engagements are in progress?'
+          : profile.role === 'Cloud Solution Architect'
+          ? 'Show active architecture engagements'
+          : profile.role === 'CSAM'
+          ? 'What is the customer health status?'
           : 'What is the overall customer sentiment?',
         'Give me a summary of this week\'s activity',
         'Which customers need immediate attention?',

@@ -20,7 +20,7 @@ export const mockProfiles: Profile[] = [
   },
   {
     id: 'prof-3',
-    name: 'Maria Rodriguez',
+    name: 'Marie Torelle',
     role: 'Solution Specialist',
     department: 'Solutions',
     description: 'Expert in specific solution areas who helps customers understand how products can address their business challenges. Drives solution adoption and expansion.',

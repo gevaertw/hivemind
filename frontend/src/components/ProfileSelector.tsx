@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/Select';
-import { User, Briefcase, Building2, Podcast, Mic } from 'lucide-react';
+import { User, Briefcase, Building2, Podcast, Mic, Bell } from 'lucide-react';
 
 interface ProfileSelectorProps {
   profiles: Profile[];
@@ -103,6 +103,17 @@ export function ProfileSelector({
               >
                 <Mic className="h-4 w-4" />
                 Record Meeting Notes
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full gap-2"
+                onClick={() => {
+                  // TODO: Implement newsfeed subscription logic
+                  console.log('Subscribe to personalized newsfeed');
+                }}
+              >
+                <Bell className="h-4 w-4" />
+                Subscribe to Newsfeed
               </Button>
             </div>
           )}

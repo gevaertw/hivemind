@@ -122,8 +122,8 @@ export function ChatInterface({
     : [];
 
   return (
-    <Card className="flex-1 flex flex-col min-h-0">
-      <CardHeader className="pb-3 border-b">
+    <Card className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      <CardHeader className="pb-3 border-b shrink-0">
         <div className="flex items-center gap-2">
           <div className="p-1.5 rounded-lg bg-primary/10">
             <Bot className="h-5 w-5 text-primary" />
@@ -139,9 +139,9 @@ export function ChatInterface({
         </div>
       </CardHeader>
       
-      <CardContent className="flex-1 flex flex-col min-h-0 p-0">
+      <CardContent className="flex-1 flex flex-col min-h-0 p-0 overflow-hidden">
         {/* Messages Area */}
-        <ScrollArea className="flex-1 p-4" ref={scrollRef}>
+        <ScrollArea className="flex-1 p-4 min-h-0" ref={scrollRef}>
           <div className="space-y-4">
             {messages.map((message) => (
               <div
@@ -205,7 +205,7 @@ export function ChatInterface({
 
         {/* Suggested Questions */}
         {messages.length <= 1 && profile && (
-          <div className="px-4 pb-2">
+          <div className="px-4 pb-2 shrink-0">
             <p className="text-xs text-muted-foreground mb-2">
               Suggested questions:
             </p>
@@ -227,7 +227,7 @@ export function ChatInterface({
         {/* Input Area */}
         <form
           onSubmit={handleSubmit}
-          className="p-4 border-t border-border bg-card"
+          className="p-4 border-t border-border bg-card shrink-0"
         >
           <div className="flex gap-2">
             <Input

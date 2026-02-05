@@ -12,3 +12,6 @@ user interactions:
 - below that button add another button to record meeting notes from speech
 
 - replace the roles in the selector with the following roles:  Account Exec, Account Technology Strategist, Solution Specialist, Solution Engineer, Cloud Solution Architect, CSAM 
+
+- Add a buton below the other buttons to subscribe to the personalised newsfeed
+

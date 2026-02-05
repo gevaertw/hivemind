@@ -135,8 +135,8 @@ export function CustomerOverview({
   }, [filteredEvents]);
 
   return (
-    <Card className="flex-1 flex flex-col min-h-0">
-      <CardHeader className="pb-4">
+    <Card className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      <CardHeader className="pb-4 shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg">Customer Activity</CardTitle>
           <PeriodSelector
@@ -145,9 +145,9 @@ export function CustomerOverview({
           />
         </div>
       </CardHeader>
-      <CardContent className="flex-1 flex flex-col min-h-0 pt-0">
+      <CardContent className="flex-1 flex flex-col min-h-0 pt-0 overflow-hidden">
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4 shrink-0">
           <StatCard title="Total Events" value={stats.total} icon={Calendar} />
           <StatCard
             title="Active Customers"
@@ -169,7 +169,7 @@ export function CustomerOverview({
         </div>
 
         {/* Timeline */}
-        <div className="flex-1 min-h-0">
+        <div className="flex-1 min-h-0 overflow-hidden">
           <ScrollArea className="h-full pr-4">
             {filteredEvents.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-48 text-muted-foreground">

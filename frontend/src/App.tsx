@@ -59,7 +59,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="h-screen bg-background flex flex-col overflow-hidden">
       {/* Header */}
       <header className="border-b border-border bg-card px-4 py-3 shrink-0">
         <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
@@ -97,8 +97,8 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <div className="flex-1 flex min-h-0">
-        <div className="max-w-screen-2xl mx-auto w-full flex min-h-0">
+      <div className="flex-1 flex min-h-0 overflow-hidden">
+        <div className="max-w-screen-2xl mx-auto w-full flex min-h-0 overflow-hidden">
           {/* Sidebar */}
           <aside
             className={`
@@ -128,9 +128,9 @@ function App() {
           )}
 
           {/* Main Content Area */}
-          <main className="flex-1 flex min-h-0 p-4 gap-4">
+          <main className="flex-1 flex min-h-0 p-4 gap-4 overflow-hidden">
             {/* Customer Overview */}
-            <div className="flex-1 flex flex-col min-h-0 min-w-0">
+            <div className="flex-1 flex flex-col min-h-0 min-w-0 overflow-hidden">
               <CustomerOverview
                 events={mockEvents}
                 selectedPeriod={selectedPeriod}
@@ -139,7 +139,7 @@ function App() {
             </div>
 
             {/* Chat Interface */}
-            <div className="w-96 xl:w-[28rem] shrink-0 hidden md:flex flex-col min-h-0">
+            <div className="w-96 xl:w-[28rem] shrink-0 hidden md:flex flex-col min-h-0 overflow-hidden">
               <ChatInterface
                 messages={messages}
                 onSendMessage={handleSendMessage}

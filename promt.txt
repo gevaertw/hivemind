@@ -1,0 +1,12 @@
+This is the hivemind project.  we are gooing to build a web frontent (and only the frontend) for the following:
+
+the hivemind is a project that  gathers and consolitdate customer information from both internal and external sources.  There is a proces in the backend that centrailzes all data in different file formats.  Agents wil process the information and provide relevant information for the person requesting it.  Each person requesting information has a role in the company, the role description is available as information as wel.
+
+user interactions:
+- there has to be a selector for the profile (based on the job description)
+- get an overwiew of what happened at the customer in a specific period (eg 1 week) there has to be a selector to change the period
+- chat with the data (based on the role)
+
+
+- in the collum where a profile is selected, add a button generate a podcast to prepare a meeting with the customer for now put no logic behind the button
+

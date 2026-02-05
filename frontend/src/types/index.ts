@@ -1,4 +1,4 @@
-// Types for the Hivemind application
+// Types for the hAIvemind application
 
 export interface Profile {
   id: string;

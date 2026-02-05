@@ -1,6 +1,6 @@
-This is the hivemind project.  we are gooing to build a web frontent (and only the frontend) for the following:
+This is the hAIvemind project.  we are gooing to build a web frontent (and only the frontend) for the following:
 
-the hivemind is a project that  gathers and consolitdate customer information from both internal and external sources.  There is a proces in the backend that centrailzes all data in different file formats.  Agents wil process the information and provide relevant information for the person requesting it.  Each person requesting information has a role in the company, the role description is available as information as wel.
+the hAIvemind is a project that  gathers and consolitdate customer information from both internal and external sources.  There is a proces in the backend that centrailzes all data in different file formats.  Agents wil process the information and provide relevant information for the person requesting it.  Each person requesting information has a role in the company, the role description is available as information as wel.
 
 user interactions:
 - there has to be a selector for the profile (based on the job description)

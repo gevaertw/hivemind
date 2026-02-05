@@ -249,7 +249,7 @@ export const initialChatMessages: ChatMessage[] = [
   {
     id: 'msg-1',
     role: 'assistant',
-    content: "Hello! I'm your Hivemind AI assistant. I have access to consolidated Proximus Group data from news sources, internal systems, and market intelligence. Based on your role, I can help you with:\n\n• Recent news and strategic updates\n• Leadership and organizational changes\n• Technology initiatives and partnerships\n• Account health and opportunities\n\nWhat would you like to know about Proximus?",
+    content: "Hello! I'm your hAIvemind AI assistant. I have access to consolidated Proximus Group data from news sources, internal systems, and market intelligence. Based on your role, I can help you with:\n\n• Recent news and strategic updates\n• Leadership and organizational changes\n• Technology initiatives and partnerships\n• Account health and opportunities\n\nWhat would you like to know about Proximus?",
     timestamp: new Date(),
   },
 ];

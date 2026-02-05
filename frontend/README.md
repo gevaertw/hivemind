@@ -1,6 +1,6 @@
-# Hivemind Frontend
+# hAIvemind Frontend
 
-A modern React frontend for the Hivemind Customer Intelligence Platform.
+A modern React frontend for the hAIvemind Customer Intelligence Platform.
 
 ## Features
 

@@ -1,5 +1,5 @@
 {
-  "name": "hivemind-frontend",
+  "name": "haivemind-frontend",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "Hivemind Customer Intelligence Frontend",
+  "description": "hAIvemind Customer Intelligence Frontend",
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-scroll-area": "^1.2.10",

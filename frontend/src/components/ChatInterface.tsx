@@ -129,7 +129,7 @@ export function ChatInterface({
             <Bot className="h-5 w-5 text-primary" />
           </div>
           <div>
-            <CardTitle className="text-lg">Hivemind Assistant</CardTitle>
+            <CardTitle className="text-lg">hAIvemind Assistant</CardTitle>
             <p className="text-sm text-muted-foreground">
               {profile
                 ? `Personalized for ${profile.role}`

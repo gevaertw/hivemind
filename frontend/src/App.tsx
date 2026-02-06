@@ -6,6 +6,7 @@ import { CustomerOverview } from '@/components/CustomerOverview';
 import { ChatInterface } from '@/components/ChatInterface';
 import { Hexagon, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { sendMessageToAgent, isAgentConfigured, resetConversation } from '@/services/agentService';
 
 function App() {
   const [selectedProfile, setSelectedProfile] = useState<Profile | null>(null);
@@ -16,6 +17,8 @@ function App() {
 
   const handleSelectProfile = useCallback((profile: Profile) => {
     setSelectedProfile(profile);
+    // Reset conversation thread when profile changes
+    resetConversation();
     // Add a personalized greeting when profile changes
     const greeting: ChatMessage = {
       id: `msg-greeting-${Date.now()}`,
@@ -40,11 +43,27 @@ function App() {
       setMessages((prev) => [...prev, userMessage]);
       setIsLoading(true);
 
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
+      let responseContent: string;
 
-      // Generate mock response based on profile
-      const responseContent = generateMockChatResponse(content, selectedProfile);
+      try {
+        if (isAgentConfigured()) {
+          // Use Azure AI Foundry agent
+          responseContent = await sendMessageToAgent(content, {
+            name: selectedProfile.name,
+            role: selectedProfile.role,
+            department: selectedProfile.department,
+          });
+        } else {
+          // Fall back to mock response if agent not configured
+          await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 1000));
+          responseContent = generateMockChatResponse(content, selectedProfile);
+        }
+      } catch (error) {
+        console.error('Agent error:', error);
+        // Fall back to mock response on error
+        responseContent = `I encountered an issue connecting to the AI service. ${error instanceof Error ? error.message : 'Please try again later.'}`;
+      }
+
       const assistantMessage: ChatMessage = {
         id: `msg-assistant-${Date.now()}`,
         role: 'assistant',

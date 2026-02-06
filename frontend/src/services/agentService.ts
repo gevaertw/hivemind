@@ -3,7 +3,7 @@
 
 const AZURE_AGENT_ID = import.meta.env.VITE_AZURE_AGENT_ID || 'hiveagent:1';
 const AZURE_AIPROJECT_ENDPOINT = import.meta.env.VITE_AZURE_AIPROJECT_ENDPOINT || '';
-const API_VERSION = '2024-12-01-preview';
+const API_VERSION = '2024-05-01-preview';
 
 interface ThreadRun {
   id: string;
@@ -23,25 +23,7 @@ interface ThreadMessage {
 let currentThreadId: string | null = null;
 
 // Get access token - this should be implemented with MSAL or your auth provider
-async function getAccessToken(): Promise<string> {
-  // For development, you can use Azure CLI token:
-  // az account get-access-token --resource https://cognitiveservices.azure.com --query accessToken -o tsv
-  
-  // Check if running in development mode with a dev token
-  const devToken = import.meta.env.VITE_AZURE_DEV_TOKEN;
-  if (devToken) {
-    return devToken;
-  }
-  
-  // In production, integrate with MSAL.js or your auth provider
-  // For now, try to get token from session storage (can be set by parent app)
-  const storedToken = sessionStorage.getItem('azure_access_token');
-  if (storedToken) {
-    return storedToken;
-  }
-  
-  throw new Error('No authentication token available. Please configure VITE_AZURE_DEV_TOKEN or implement MSAL authentication.');
-}
+import { getAccessToken } from './authConfig';
 
 async function apiRequest<T>(
   endpoint: string,
@@ -72,7 +54,7 @@ async function apiRequest<T>(
 
 // Create a new conversation thread
 async function createThread(): Promise<string> {
-  const result = await apiRequest<{ id: string }>('/threads', 'POST', {});
+  const result = await apiRequest<{ id: string }>('/openai/threads', 'POST', {});
   currentThreadId = result.id;
   return result.id;
 }
@@ -99,13 +81,13 @@ export async function sendMessageToAgent(
   }
   
   // Add the user message to the thread
-  await apiRequest<ThreadMessage>(`/threads/${threadId}/messages`, 'POST', {
+  await apiRequest<ThreadMessage>(`/openai/threads/${threadId}/messages`, 'POST', {
     role: 'user',
     content: messageContent,
   });
 
   // Create a run to process the message
-  const run = await apiRequest<ThreadRun>(`/threads/${threadId}/runs`, 'POST', {
+  const run = await apiRequest<ThreadRun>(`/openai/threads/${threadId}/runs`, 'POST', {
     assistant_id: AZURE_AGENT_ID,
   });
 
@@ -123,7 +105,7 @@ export async function sendMessageToAgent(
     }
     
     await new Promise(resolve => setTimeout(resolve, 1000));
-    runStatus = await apiRequest<ThreadRun>(`/threads/${threadId}/runs/${run.id}`, 'GET');
+    runStatus = await apiRequest<ThreadRun>(`/openai/threads/${threadId}/runs/${run.id}`, 'GET');
     attempts++;
   }
 
@@ -133,7 +115,7 @@ export async function sendMessageToAgent(
 
   // Get the latest messages from the thread
   const messagesResponse = await apiRequest<{ data: ThreadMessage[] }>(
-    `/threads/${threadId}/messages`,
+    `/openai/threads/${threadId}/messages`,
     'GET'
   );
 

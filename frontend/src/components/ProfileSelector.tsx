@@ -86,8 +86,8 @@ export function ProfileSelector({
                 variant="outline"
                 className="w-full gap-2"
                 onClick={() => {
-                  // TODO: Implement podcast generation logic
-                  console.log('Generate podcast for customer meeting preparation');
+                  const audio = new Audio('/ProximusSound.m4a');
+                  audio.play();
                 }}
               >
                 <Podcast className="h-4 w-4" />
